@@ -1,11 +1,5 @@
 {
-  "name":"MAGHRABY STORE",
-  "short_name":"MAGHRABY",
-  "start_url":"./",
-  "display":"standalone",
-  "background_color":"#f5f8fa",
-  "theme_color":"#38a9e8",
-  "lang":"ar",
-  "dir":"rtl",
-  "icons":[{"src":"public/logo.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+"name":"MAGHRABY STORE","short_name":"MAGHRABY","start_url":"./","display":"standalone",
+"background_color":"#f3f7f9","theme_color":"#0f9fbe","lang":"ar","dir":"rtl",
+"icons":[{"src":"public/logo.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
