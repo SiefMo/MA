@@ -2,45 +2,38 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f9fbe">
-<meta name="description" content="MAGHRABY STORE - Offline Store Manager">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102a43">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="public/logo.svg">
 <link rel="stylesheet" href="styles.css">
-<title>MAGHRABY STORE</title>
+<title>MAGHRABY STORE • Pro</title>
 </head>
 <body>
 <div id="app">
-<aside class="sidebar" id="sidebar">
-  <div class="brand">
-    <img src="public/logo.svg" alt="MAGHRABY STORE">
-    <div><b>MAGHRABY</b><span>STORE</span><small>STORE MANAGER</small></div>
-  </div>
-  <div class="sidebar-clock"><span id="sideDate"></span><strong id="sideTime"></strong></div>
-  <nav id="nav"></nav>
-  <div class="side-bottom">
-    <button class="side-btn" data-page="settings">⚙️ الإعدادات</button>
-    <button class="side-btn" id="backupBtn">💾 نسخة احتياطية</button>
+<aside id="sidebar">
+  <div class="brand"><img src="public/logo.svg"><div><b>MAGHRABY</b><span>STORE</span><small>PRO MANAGER</small></div></div>
+  <div class="clock"><span id="date"></span><strong id="time"></strong></div>
+  <div id="nav"></div>
+  <div class="side-foot">
+    <button data-page="settings">⚙ الإعدادات</button>
+    <button id="backup">⇩ نسخة احتياطية</button>
   </div>
 </aside>
-
-<main class="main">
-<header class="topbar">
-  <button class="menu" id="menuBtn">☰</button>
-  <div class="title-wrap"><h1 id="pageTitle">الرئيسية</h1><span id="onlineState">● محفوظ محليًا</span></div>
-  <div class="top-actions">
-    <button class="top-btn" data-page="sale">＋ بيع</button>
-    <button class="top-btn green" data-page="repair">＋ استلام صيانة</button>
-    <button class="avatar" id="quickClose">إقفال اليوم</button>
+<main>
+<header>
+  <button id="menu" class="icon-btn">☰</button>
+  <div><h1 id="title">لوحة التحكم</h1><span id="saveState">● محفوظ على الجهاز</span></div>
+  <div class="header-actions">
+    <button class="primary" data-page="sale">+ بيع</button>
+    <button class="mint" data-page="repair">+ استلام صيانة</button>
+    <button class="dark" id="closeToday">إقفال اليوم</button>
   </div>
 </header>
-<section id="content" class="content"></section>
+<section id="view"></section>
 </main>
 </div>
-
-<div id="modal" class="modal hidden"><div class="modal-card"><div class="modal-head"><h2 id="modalTitle"></h2><button class="close" id="closeModal">×</button></div><div id="modalBody"></div></div></div>
+<div id="modal" class="modal hidden"><div class="modal-box"><div class="modal-title"><h2 id="mt"></h2><button id="mc">×</button></div><div id="mb"></div></div></div>
 <div id="toast"></div>
 <script src="app.js"></script>
-</body>
-</html>
+</body></html>
