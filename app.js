@@ -1,12 +1,12 @@
-const DB='MAGHRABY_STORE_FRESH_V6',VER=1;
+const DB='MAGHRABY_STORE_FRESH_V7',VER=1;
 const ACCOUNTS=[['drawer','الدرج'],['wallet','المحفظة الإلكترونية'],['instapay','InstaPay']];
 const stores=['products','sales','repairs','cash','expenses','purchases','customers','staff','invoices','days','audit','settings','transfers','returns'];
 let db,state={page:'dashboard',cat:'',cart:[],discount:0,cartNote:'',saleCustomer:'',saleAccount:'drawer',lastInvoice:null,q:'',globalQ:''};
 const NAV=[
-['dashboard','⌂','لوحة التحكم'],['sale','🛒','المبيعات والكاشير'],['repair','🔧','الصيانة والمتابعة'],
-['inventory','📦','المخزون والمنتجات'],['purchases','🛍️','المشتريات والتوريد'],['customers','👥','العملاء'],
-['cash','💰','الخزنة والحركات'],['expenses','💸','مصروفات المحل'],['staff','👨‍🔧','الفنيون والسلف'],
-['needs','📋','الاحتياجات'],['returns','↩️','المرتجعات'],['reports','📊','الربح والتقارير'],['invoices','🧾','الفواتير'],['settings','⚙','الإعدادات']
+['dashboard','⌂','لوحة التحكم'],['sale','▣','المبيعات والكاشير'],['repair','⌁','الصيانة والمتابعة'],
+['inventory','◇','المخزون والمنتجات'],['purchases','＋','المشتريات والتوريد'],['customers','◉','العملاء'],
+['cash','₤','الخزنة والحركات'],['expenses','−','مصروفات المحل'],['staff','⚒','الفنيون والسلف'],
+['needs','≡','الاحتياجات'],['returns','↶','المرتجعات'],['reports','▥','الربح والتقارير'],['invoices','▤','الفواتير'],['settings','⚙','الإعدادات']
 ];
 const seed=[];
 const $=id=>document.getElementById(id),uid=()=>crypto.randomUUID(),now=()=>new Date().toISOString(),today=()=>now().slice(0,10);
@@ -114,7 +114,7 @@ function printInvoice(x){let items=x.items.map(i=>`<tr><td>${i.name}</td><td>${i
 async function settings(v){let fs=(await req('settings')).find(x=>x.id==='finance')||{};v.innerHTML=`<div class="page-head"><div><span class="eyebrow">CONTROL CENTER</span><h2>الإعدادات والنظام</h2><p>البيانات محلية على الجهاز، وتقدر تعمل نسخة احتياطية في أي وقت.</p></div></div><div class="grid two"><div class="card settings-card"><div class="card-title"><div><h3>💰 أرصدة البداية</h3><small>لو عندك مبلغ موجود قبل أول يوم استخدام، اكتبه هنا.</small></div></div><div class="form compact"><label>رصيد الدرج<input id="open_drawer" type="number" value="${fs.drawerOpening||''}"></label><label>رصيد المحفظة<input id="open_wallet" type="number" value="${fs.walletOpening||''}"></label><label>رصيد InstaPay<input id="open_instapay" type="number" value="${fs.instapayOpening||''}"></label></div><button class="btn primary" onclick="saveOpenings()">حفظ أرصدة البداية</button></div><div class="card settings-card"><div class="card-title"><div><h3>💾 النسخ الاحتياطي</h3><small>احتفظ بنسخة خارج الجهاز بشكل دوري.</small></div></div><div class="actions"><button class="btn primary" onclick="backup()">تصدير نسخة احتياطية</button><label class="btn">استيراد<input type="file" hidden accept=".json" onchange="restore(this.files[0])"></label></div></div><div class="card settings-card"><div class="card-title"><div><h3>🎨 الهوية</h3><small>MAGHRABY STORE — ألوان مستوحاة من اللوجو الأصلي.</small></div></div><img src="public/logo.png" class="settings-logo"><p class="muted">اللوجو الرسمي محفوظ بصيغة PNG داخل المشروع، والواجهة مبنية حول الأزرق الكهربائي، السماوي، الأخضر، والكحلي الموجودين في الهوية.</p></div><div class="card settings-card"><div class="card-title"><div><h3>🧠 قواعد النظام</h3><small>المنطق الأساسي اللي بيحافظ على الحسابات.</small></div></div><ul class="rules"><li>البيع يسجل دخل في الحساب المختار ويقلل مخزون المنتجات.</li><li>المشتريات تسجل خرج وتزيد المخزون.</li><li>المصروفات والسلف تخرج من الحساب المختار.</li><li>التحويل بين الدرج والمحفظة وInstaPay لا يغير صافي دخل/خرج المحل.</li><li>إقفال اليوم يحفظ الرصيد الفعلي ليصبح رصيد بداية اليوم التالي.</li></ul></div></div>`}
 async function saveOpenings(){let x={id:'finance',drawerOpening:Number(val('open_drawer'))||0,walletOpening:Number(val('open_wallet'))||0,instapayOpening:Number(val('open_instapay'))||0};await put('settings',x);toast('تم حفظ أرصدة البداية');render()}
 
-async function backup(){let data={version:6,exportedAt:now()};for(const s of stores)data[s]=await req(s);let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'}));a.download='MAGHRABY_STORE_BACKUP_'+today()+'.json';a.click();toast('تم إنشاء النسخة الاحتياطية')}
+async function backup(){let data={version:7,exportedAt:now(),app:'MAGHRABY STORE V7 PRO FINAL'};for(const s of stores)data[s]=await req(s);let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'}));a.download='MAGHRABY_STORE_BACKUP_'+today()+'.json';a.click();toast('تم إنشاء النسخة الاحتياطية')}
 async function restore(file){if(!file)return;try{let d=JSON.parse(await file.text());for(const s of stores)for(const x of (d[s]||[]))await put(s,x);toast('تم استرجاع البيانات');render()}catch(e){toast('ملف النسخة غير صالح')}}
 async function log(action,data){await put('audit',{id:uid(),date:now(),action,data})}
 function modal(t,b){$('mt').textContent=t;$('mb').innerHTML=b;$('modal').classList.remove('hidden')}function closeModal(){$('modal').classList.add('hidden')}$('mc').onclick=closeModal;
