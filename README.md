@@ -1,8 +1,8 @@
-# MAGHRABY STORE V8 PRO FINAL
+# MAGHRABY STORE V9 FINAL
 
 نسخة Local / Offline-first نهائية لمحل MAGHRABY STORE.
 
-- قاعدة بيانات جديدة وفارغة: MAGHRABY_STORE_FRESH_V8
+- قاعدة بيانات جديدة وفارغة: MAGHRABY_STORE_FRESH_FINAL
 - لا توجد بيانات تجريبية أو منتجات مسبقة.
 - اللوجو المرفق هو الصورة التي زودت بها المشروع، محفوظة بصيغة PNG.
 - واجهة جديدة بهوية مستوحاة مباشرة من ألوان اللوجو.
