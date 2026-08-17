@@ -12,7 +12,7 @@
 <body>
 <div id="app">
 <aside id="sidebar">
-  <div class="brand"><img src="public/logo.png"><div><b>MAGHRABY</b><span>STORE</span><small>PRO MANAGER</small></div></div>
+  <div class="brand"><img src="public/logo.png" alt="MAGHRABY STORE"><div><b>MAGHRABY</b><span>STORE</span><small>LOCAL BUSINESS SYSTEM</small></div></div>
   <div class="clock"><span id="date"></span><strong id="time"></strong></div>
   <div id="nav"></div>
   <div class="side-foot">
@@ -23,12 +23,9 @@
 <main>
 <header>
   <button id="menu" class="icon-btn">☰</button>
-  <div><h1 id="title">لوحة التحكم</h1><span id="saveState">● محفوظ على الجهاز</span></div>
-  <div class="header-actions">
-    <button class="primary" data-page="sale">+ بيع</button>
-    <button class="mint" data-page="repair">+ استلام صيانة</button>
-    <button class="dark" id="closeToday">إقفال اليوم</button>
-  </div>
+  <div class="head-title"><h1 id="title">لوحة التحكم</h1><span id="saveState">● البيانات محفوظة محليًا</span></div>
+  <label class="header-search"><span>⌕</span><input id="globalSearch" placeholder="بحث سريع في المنتجات والعملاء...  Ctrl + K"></label>
+  <div class="header-actions"><span class="online-dot">● Offline</span><button class="btn primary" data-page="sale">＋ بيع</button><button class="btn mint" data-page="repair">＋ صيانة</button><button class="btn dark" id="closeToday">إقفال اليوم</button></div>
 </header>
 <section id="view"></section>
 </main>
