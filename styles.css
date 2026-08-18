@@ -33,3 +33,7 @@ input,select,textarea{font-size:15px;line-height:1.5;}
 .repair-modal-head{display:flex;gap:14px;align-items:flex-start;}
 .repair-id{font-weight:900;letter-spacing:.5px;}
 @media(max-width:900px){.repair-pipeline{grid-template-columns:1fr!important}.grid.two,.grid.three{grid-template-columns:1fr!important}}
+.compact-actions{display:flex;gap:5px;flex-wrap:wrap}.btn.small{min-height:32px;padding:6px 8px;font-size:10px}.inactive-row{opacity:.58}.inactive-row td{background:#071321}.muted{margin:4px 0 0}.actions.compact-actions{justify-content:flex-start}
+
+/* V12 POS usability: cart controls */
+.cart-head-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.cart-head-actions .btn{white-space:nowrap}.cart-head-actions .btn:disabled{opacity:.45;cursor:not-allowed}.cart-item-main{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}.cart-item-main>div{min-width:0}.cart-item-main b{overflow-wrap:anywhere}.icon-btn{width:30px;height:30px;border:0;border-radius:8px;cursor:pointer;font-size:20px;line-height:1}.icon-btn.danger{background:#ffe8e8;color:#b42318}.icon-btn.danger:hover{filter:brightness(.97)}
