@@ -19,3 +19,10 @@
 ## التشغيل
 افتح `index.html` عبر استضافة محلية أو GitHub Pages. بعد تحديث ملفات المشروع على GitHub Pages استخدم `Ctrl + F5` مرة واحدة إذا كان المتصفح يحتفظ بالنسخة القديمة.
 - صفحة مستقلة لأكواد الخصم + سجل حركة المخزون.
+
+
+## V14 Final fixes
+- Removed customer account UI from navigation; customer records remain simple.
+- Added dedicated Backup & Restore page.
+- Added prominent invoice access in header and dashboard.
+- Added stable invoice numbers and invoice migration.
